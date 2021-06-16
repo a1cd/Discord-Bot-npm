@@ -3,7 +3,9 @@ const Discord = require('discord.js');
 const mongo = require('mongodb');
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN
-
+if (TOKEN == null) {
+  console.error("no token provided");
+}
 const MongoClient = require('mongodb').MongoClient;
 
 const test = require('assert');
