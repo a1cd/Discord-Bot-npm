@@ -1,5 +1,5 @@
 {
-  "name": "discord-made-siple",
+  "name": "discord-bot",
   "version": "1.0.0",
   "description": "Discord made siple through a cool command system",
   "main": "index.js",
@@ -10,8 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "assert": "^2.0.0",
+    "discord-made-siple": "^1.0.0",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
-    "mongodb": "^3.6.9"
+    "mongodb": "^3.6.9",
+    "simple-discord-commands": "^1.0.0"
   }
 }
