@@ -2,7 +2,7 @@ require('dotenv').config();
 const {Cmd, help} = require('discord-made-siple');
 const Discord = require('discord.js');
 const mongo = require('mongodb');
-const {help, ping, uptime} = require('simple-discord-commands')
+const {ping, uptime} = require('simple-discord-commands')
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN
 if (TOKEN == null) {
