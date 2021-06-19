@@ -4,6 +4,8 @@ Michiel Mulders shows you how to install and set up a new Discord bot, which is 
 
 Link to article on SitePoint: [https://www.sitepoint.com/discord-bot-node-js/](https://www.sitepoint.com/discord-bot-node-js/)
 
+
+
 ## Requirements
 
 - [Node.js](http://nodejs.org/)
