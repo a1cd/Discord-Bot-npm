@@ -1,7 +1,7 @@
 {
   "name": "discord-bot",
   "version": "1.0.0",
-  "description": "Discord made siple through a cool command system",
+  "description": "Discord made siple through a cool command m",
   "main": "index.js",
   "scripts": {
     "run": "node index.js"
