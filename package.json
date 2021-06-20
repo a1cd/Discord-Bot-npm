@@ -19,5 +19,11 @@
     "ffmpeg-static": "^4.4.0",
     "mongodb": "^3.6.9",
     "simple-discord-commands": "^1.0.2"
-  }
+  },
+  "keywords": [
+    "discord",
+    "easier",
+    "simple",
+    "command"
+  ]
 }
