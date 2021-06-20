@@ -62,6 +62,7 @@ function listRule(inp, msg, cmd) {
     })
   });
 }
+
 /**
  * @param {String} inp 
  * @param {Discord.Message} msg 
@@ -108,7 +109,9 @@ async function playRussiaNationalAnthem(inp, msg, cmd) {
     msg.reply('You need to join a voice channel first!');
   }
 }
-let Commands = new Cmd("!", 0, ()=>{}, "", [
+
+
+var Commands = new Cmd("!", 0, ()=>{}, "", [
   ping,
   new Cmd("rule", 1, help, null, [
     new Cmd("add", 0, addRule),
@@ -117,6 +120,7 @@ let Commands = new Cmd("!", 0, ()=>{}, "", [
   new Cmd("russia", 0, playRussiaNationalAnthem),
   uptime
 ])
+Commands.reindex(bot)
 bot.on('message', msg => {
   Commands.test(msg.content, msg)
 });
