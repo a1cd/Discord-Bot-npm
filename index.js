@@ -6,7 +6,7 @@ const opus = require("@discordjs/opus").OpusEncoder
 const {Cmd, help} = require('discord-made-siple');
 const Discord = require('discord.js');
 const mongo = require('mongodb');
-const {ping, uptime} = require('simple-discord-commands')
+const {ping, uptime, nick} = require('simple-discord-commands')
 const audioLength = require('./src/duration');
 const random = require("./src/random")
 
@@ -69,7 +69,19 @@ function listRule(inp, msg, cmd) {
  * @param {Cmd} cmd 
  */
 async function playRussiaNationalAnthem(inp, msg, cmd) {
-  var quotes = [["The goal of Socialism is Communism."], ["Atheism is the natural and inseparable part of Communism."], ["Workers of the world, unite!"], ["We will hang the capitalists with the rope that they sell us."], ["The problem with socialism is that you eventually run out of other people's money."], ["Communism is Soviet government plus the electrification of the whole country."], ["If anything is certain, it is that I myself am not a Marxist."," -Karl Marx"]]
+  var quotes = [
+    ["The goal of Socialism is Communism."],
+    ["Atheism is the natural and inseparable part of Communism."], 
+    ["Workers of the world, unite!"], 
+    ["We will hang the capitalists with the rope that they sell us."], 
+    ["The problem with socialism is that you eventually run out of other people's money."], 
+    ["Communism is Soviet government plus the electrification of the whole country."], 
+    ["If anything is certain, it is that I myself am not a Marxist."," -Karl Marx"], 
+    ["God is on your side?","Is He a Conservative?","The Devil's on my side,","he's a good Communist."],
+    ["The theory of Communism may be summed up in the single sentence:","Abolition of private property."],
+    ["There is no difference between communism and socialism,", "except in the means of achieving the same ultimate end:", "communism proposes to enslave men by force, socialism—by vote.", "It is merely the difference between murder and suicide."],
+    ["Give us the child for eight years and it will be a Bolshevik forever."]
+  ]
   // Only try to join the sender's voice channel if they are in one themselves
   if (msg.member.voice.channel) {
     const connection = await msg.member.voice.channel.join();
@@ -92,7 +104,7 @@ async function playRussiaNationalAnthem(inp, msg, cmd) {
           setTimeout(() => {
             previousQuoteSaidLength = quote[i].match(" ").length + previousQuoteSaidLength
             msg.reply(quoteSay)
-          }, previousQuoteSaidLength*500)
+          }, previousQuoteSaidLength*3500)
         }
       }, Math.floor((length)/(quotes.length)*1000)*i)
     }
@@ -118,9 +130,10 @@ var Commands = new Cmd("!", 0, ()=>{}, "", [
     new Cmd("list", 0, listRule)
   ]),
   new Cmd("russia", 0, playRussiaNationalAnthem),
-  uptime
+  uptime,
+  nick
 ])
-Commands.reindex(bot)
+// Commands.reindex(bot)
 bot.on('message', msg => {
   Commands.test(msg.content, msg)
 });
