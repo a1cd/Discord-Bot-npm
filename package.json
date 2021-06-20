@@ -1,6 +1,6 @@
 {
   "name": "discord-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Discord made siple through a cool command m",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "simple-discord-commands": "^1.0.0"
   },
   "devDependencies": {
-    "corde": "^4.1.2"
+    "corde": "^4.1.2",
     "dotenv": "^10.0.0",
     "mongodb": "^3.6.9",
     "simple-discord-commands": "^1.0.2"
