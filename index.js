@@ -1,9 +1,6 @@
-process.on("unhandledRejection", console.error);
-
-
 require('dotenv').config();
 const opus = require("@discordjs/opus").OpusEncoder
-const {Cmd, help} = require('discord-made-siple');
+const {Cmd, help} = require('command-based-discord');
 const Discord = require('discord.js');
 const mongo = require('mongodb');
 const {ping, uptime, nick} = require('simple-discord-commands')
