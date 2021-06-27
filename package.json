@@ -13,12 +13,11 @@
     "assert": "^2.0.0",
     "audio-loader": "^1.0.3",
     "colorjs.io": "^0.0.3",
-    "command-based-discord": "^1.0.0",
+    "command-based-discord": "^1.1.0-0",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
     "ffmpeg-static": "^4.4.0",
-    "mongodb": "^3.6.9",
-    "simple-discord-commands": "^1.0.2"
+    "mongodb": "^3.6.9"
   },
   "keywords": [
     "discord",

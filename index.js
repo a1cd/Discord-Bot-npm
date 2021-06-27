@@ -1,9 +1,9 @@
 require('dotenv').config();
 const opus = require("@discordjs/opus").OpusEncoder
-const {Cmd, help} = require('command-based-discord');
+const {command} = require('command-based-discord');
 const Discord = require('discord.js');
 const mongo = require('mongodb');
-const {ping, uptime, nick} = require('simple-discord-commands')
+const {ping, uptime, nick} = require('command-based-discord')
 const audioLength = require('./src/duration');
 const random = require("./src/random")
 
@@ -35,7 +35,7 @@ bot.on('ready', async () => {
 /**
  * @param {String} inp 
  * @param {Discord.Message} msg 
- * @param {Cmd} cmd 
+ * @param {command} cmd 
  */
 function addRule(inp, msg, cmd) {
   MongoClient.connect(url, function(err, client) {
@@ -63,7 +63,7 @@ function listRule(inp, msg, cmd) {
 /**
  * @param {String} inp 
  * @param {Discord.Message} msg 
- * @param {Cmd} cmd 
+ * @param {command} cmd 
  */
 async function playRussiaNationalAnthem(inp, msg, cmd) {
   var quotes = [
@@ -120,16 +120,16 @@ async function playRussiaNationalAnthem(inp, msg, cmd) {
 }
 
 
-var Commands = new Cmd("!", 0, ()=>{}, "", [
-  ping,
-  new Cmd("rule", 1, help, null, [
-    new Cmd("add", 0, addRule),
-    new Cmd("list", 0, listRule)
-  ]),
-  new Cmd("russia", 0, playRussiaNationalAnthem),
-  uptime,
-  nick
-])
+var Commands = new command({name: "!", commandFunction: ()=>{}, help: "", subcommands: [
+  // ping,
+  new command({name: "rule",help: "", commandFunction: ()=>{},subcommands: [
+    new command({name: "add",help: "", commandFunction: addRule}),
+    new command({name: "list",help: "", commandFunction: listRule})
+  ]}),
+  new command({name: "russia",help: "", commandFunction: playRussiaNationalAnthem})//,
+  // uptime,
+  // nick
+]})
 // Commands.reindex(bot)
 bot.on('message', msg => {
   Commands.test(msg.content, msg)
