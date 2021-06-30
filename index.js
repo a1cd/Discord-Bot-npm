@@ -1,33 +1,25 @@
 require('dotenv').config();
 const opus = require("@discordjs/opus").OpusEncoder
+const {ping, uptime, nick, help} = require('simple-discord-commands')
 const {command} = require('command-based-discord');
 const Discord = require('discord.js');
 const mongo = require('mongodb');
-const {ping, uptime, nick} = require('command-based-discord')
+
+const buttons = require('./src/buttons');
 const audioLength = require('./src/duration');
 const random = require("./src/random")
+
+const hypixel = require('discord-hypixel');
+const {HypixelAPI} = require('hypixel-api-v2');
 
 const bot = new Discord.Client();
 const TOKEN = process.env.TOKEN
 if (TOKEN == null) {
   console.error("no token provided");
 }
-const MongoClient = require('mongodb').MongoClient;
-
-const test = require('assert');
-
-// Connection url
-
-const url = 'mongodb://localhost:27017';
-
-// Database Name
-
-const dbName = 'discord';
-
-// Connect using MongoClient
 
 bot.login(TOKEN)
-
+let Api = new HypixelAPI(process.env.HYPIXELTOKEN);
 
 bot.on('ready', async () => {
   console.info(`Logged in as ${bot.user.tag}!`);
@@ -120,15 +112,17 @@ async function playRussiaNationalAnthem(inp, msg, cmd) {
 }
 
 
-var Commands = new command({name: "!", commandFunction: ()=>{}, help: "", subcommands: [
-  // ping,
+var Commands = new command({bot: bot, name: "!", commandFunction: ()=>{}, help: "", subcommands: [
+  ping(),
+  hypixel(),
   new command({name: "rule",help: "", commandFunction: ()=>{},subcommands: [
     new command({name: "add",help: "", commandFunction: addRule}),
     new command({name: "list",help: "", commandFunction: listRule})
   ]}),
-  new command({name: "russia",help: "", commandFunction: playRussiaNationalAnthem})//,
-  // uptime,
-  // nick
+  new command({name: "russia",help: "", commandFunction: playRussiaNationalAnthem}),
+  uptime(),
+  nick(),
+  help()
 ]})
 // Commands.reindex(bot)
 bot.on('message', msg => {
