@@ -17,7 +17,7 @@
     "discord-buttons": "^3.2.1",
     "discord-hypixel": "^1.0.0",
     "discord.js": "^12.5.3",
-    "dotenv": "^8.2.0",
+    "dotenv": "^14.1.0",
     "ffmpeg-static": "^4.4.0",
     "hypixel-api-v2": "^1.2.25",
     "mongodb": "^3.6.9",
