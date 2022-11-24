@@ -20,7 +20,7 @@
     "dotenv": "^8.2.0",
     "ffmpeg-static": "^4.4.0",
     "hypixel-api-v2": "^1.2.25",
-    "mongodb": "^3.6.9",
+    "mongodb": "^4.12.1",
     "simple-discord-commands": "^1.3.0"
   },
   "keywords": [
